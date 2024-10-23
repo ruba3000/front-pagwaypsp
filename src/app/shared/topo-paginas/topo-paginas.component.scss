@@ -1,0 +1,28 @@
+:host ::ng-deep {
+
+    .fundo-topo {
+        background-color: #119dcb !important;
+        border: none !important;
+        border-radius: 0px;
+        padding: 1rem !important;
+        height: 5rem;
+    }
+
+    .p-button {
+        border: none !important;
+        color: #FFFF !important;
+    }
+
+    .p-button.p-button-text:not(:disabled):hover {
+        background-color: #0f84ab;
+        border: none !important;
+    }
+
+    .p-button.p-button-text:enabled:focus {
+        box-shadow: none !important;
+    }
+
+    .pi {
+        font-size: 1.5rem;
+    }
+}

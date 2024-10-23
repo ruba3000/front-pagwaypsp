@@ -1,0 +1,136 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import "bootstrap/scss/bootstrap";
+
+.font-header {
+  font-size: 35px;
+  color: #0171d3;
+  margin-top: -2rem;
+}
+.container {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255 255 255 / 64%);
+  column-gap: 30px;
+}
+.form {
+  position: absolute;
+  max-width: 430px;
+  width: 356px;
+  height: 31rem;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 10px 0px rgb(163 163 163);
+}
+.form.signup {
+  opacity: 0;
+  pointer-events: none;
+}
+.forms.show-signup .form.signup {
+  opacity: 1;
+  pointer-events: auto;
+}
+.forms.show-signup .form.login {
+  opacity: 0;
+  pointer-events: none;
+}
+header {
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+}
+form {
+  margin-top: 85px;
+  margin-left: 0.25rem;
+}
+.form .field {
+  position: relative;
+  height: 49px;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 6px;
+}
+
+.border-button {
+  border-radius: 25px !important;
+  font-size: 18px !important;
+  // width: 200px !important;
+}
+.field input,
+.field button {
+  height: 41px;
+  width: 321px;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 11px;
+}
+.field input {
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid#CACACA;
+}
+.field input:focus {
+  border-bottom-width: 2px;
+}
+
+.field button {
+  color: #fff !important;
+  background-color: #119dcb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.field button:hover {
+  background-color: #0398ca;
+}
+
+.form a {
+  color: #0171d3;
+  text-decoration: none;
+}
+.form-content a:hover {
+  text-decoration: underline;
+}
+
+.media-options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 400px) {
+  .form {
+    padding: 20px 10px;
+  }
+}
+
+.content-geral {
+  margin-top: 4rem;
+}
+
+.button-field {
+  margin-left: 0.75rem;
+}
+
+:host::ng-deep {
+  .p-inputtext {
+    width: 321px !important;
+    height: 41px !important;
+    border-radius: 11px !important;
+  }
+}
+
+.mt-spinner {
+  margin-top: 8rem;
+}
+
+// .button-login{
+//   margin-left: 3.8rem;
+// }
+
+

@@ -1,0 +1,82 @@
+<div>
+  <section class="container forms">
+
+    <p-toast position="top-center" key="login" />
+
+    <div class="form login">
+      <div class="form-content content-geral">
+        <!-- <header class="font-header fonte-padrao color-padrao" >CCB-Gestões</header> -->
+        <header class="font-header fonte-padrao color-padrao">Acesso</header>
+
+        @if (!spinnerActive) {
+        <form action="#">
+          <div class="field input-field">
+            <p-floatLabel>
+              <input
+                class="input"
+                pInputText
+                id="Email"
+                [(ngModel)]="email"
+                name="teste"
+              />
+              <label for="Email">Email</label>
+            </p-floatLabel>
+          </div>
+
+          @if (isEmailEmpty) {
+          <div class="col-12 flex justify-content-center mt-1">
+            <p style="color: red">O email precisa estar preenchido.</p>
+          </div>
+          }
+
+          <div class="field input-field">
+            <p-floatLabel>
+              <p-password
+                class="senha-style"
+                id="Password"
+                name="teste2"
+                [(ngModel)]="senha"
+                [toggleMask]="true"
+                [feedback]="false"
+              />
+              <label for="Password">Senha</label>
+            </p-floatLabel>
+          </div>
+
+          @if (isSenhaEmpty) {
+          <div class="col-12 flex justify-content-center mt-1">
+            <p style="color: red">A senha precisa estar preenchida.</p>
+          </div>
+          }
+
+          <!-- <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+             </div> -->
+
+          <div class="field col-12 justify-content-center button-login mt-6">
+            <button
+              (click)="realizarLogin()"
+              class="border-button fonte-padrao"
+            >
+              Login
+            </button>
+          </div>
+          <div class="field col-12 flex align-items-center justify-content-center mt-2">
+            <small>Não possui conta?</small>
+            <p-button label="Registre-se" [link]="true" (onClick)="redirecionaRegistar()" />
+          </div>
+        </form>
+        } @else{
+        <div class="col-12 mt-spinner flex justify-content-center">
+          <p-progressSpinner
+            styleClass="w-4rem h-4rem"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration="1s"
+          ></p-progressSpinner>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

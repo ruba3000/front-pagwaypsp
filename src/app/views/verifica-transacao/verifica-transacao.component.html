@@ -1,11 +1,11 @@
 <app-topo-paginas></app-topo-paginas>
 
-<div>
-  <!-- <p-table responsiveLayout="scroll" [loading]="carregaTabela" dataKey="id" [columns]="colunas" [value]="dadosGrid" styleClass="p-datatable-gridlines">
+<div class="p-3">
+  <p-table responsiveLayout="scroll" [loading]="carregaTabela" dataKey="id" [columns]="colunas" [value]="dadosGrid" styleClass="p-datatable-gridlines">
   <ng-template  pTemplate="header" let-columns>
     <tr>
       @for (col of columns; track dadosGrid) {
-        <th [pSortableColumn]="col.field" [ngClass]="{'flex justify-content-center' : col.field == 'acoes'}">
+        <th [pSortableColumn]="col.field">
             {{ col.header }}
             @if(col.field != 'acoes'){
               <p-sortIcon [field]="col.field" />
@@ -18,19 +18,14 @@
     @if(!carregaTabela){
       <tr>
         @for (col of columns; track dadosGrid) {
-          @if(col.field == 'acoes'){
-            <td [ngClass]="{'flex justify-content-center' : col.field == 'acoes'}">
-              <p-button [rounded]="true" [text]="true" icon="pi pi-pencil" class="mr-2" (onClick)="editaLinha(rowData)"/>
-              <p-button [rounded]="true" [text]="true" icon="pi pi-trash" class="mr-2" (onClick)="deletaLinha(rowData)"/>
-            </td>
-          } @else{
-            <td>
-              {{ rowData[col.field] }}
-            </td>
-          }
+          
+          <td>
+            {{ rowData[col.field] }}
+          </td>
+          
         }
       </tr>
     }
   </ng-template>
-  </p-table> -->
+  </p-table>
 </div>

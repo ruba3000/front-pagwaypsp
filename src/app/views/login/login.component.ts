@@ -8,6 +8,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { Router } from '@angular/router';
+import { DefautService } from '../../services/defaut-services/defaut.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,14 +38,35 @@ export class LoginComponent implements OnInit {
 
   spinnerActive: boolean = false;
 
+  username: string = '';
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private service: DefautService, private messageService: MessageService) { }
 
   ngOnInit() {
   }
 
   public realizarLogin(): void {
-    this.router.navigate(['/home']);
+    let body: any = {
+      username: this.username
+    }
+    this.spinnerActive = true;
+    this.service.postToken('auth/login', body).subscribe({
+      next: (res) => {
+        this.router.navigate(['/home']);
+        
+      },
+      error: (err) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erro',
+            detail: 'Erro ao logar',
+            key: 'login',
+            life: 3000,
+          });
+        this.spinnerActive = false;
+      },
+    })
   }
 
   public redirecionaRegistar(): void {

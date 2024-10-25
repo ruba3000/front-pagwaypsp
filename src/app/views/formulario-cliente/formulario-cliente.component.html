@@ -1,0 +1,35 @@
+<div class="grid mt-4 mb-8">
+  <div class="col-3">
+    <p-floatLabel>
+      <input pInputText id="name" [(ngModel)]="name" />
+      <label for="name">Nome</label>
+    </p-floatLabel>
+    @if(isNameEmpty){
+      <small style="display:block;color:red">Campo Nome é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3">
+    <p-floatLabel>
+      <p-inputNumber 
+        [(ngModel)]="cpf" 
+        mode="decimal"  
+        [useGrouping]="false" />
+      <!-- <input pInputText id="cpf" [(ngModel)]="cpf" /> -->
+      <label for="cpf">CPF</label>
+    </p-floatLabel>
+    @if(isCpfEmpty){
+      <small style="display:block;color:red">Campo CPF é obrigatorio</small>
+    }
+  </div>
+</div>
+<div class="custom-div">
+  <div class="flex align-items-center md:justify-content-end mt-2">
+    <div class="mr-2">
+      <p-button styleClass="border-round-sm" (onClick)="salvarDados()" label="Salvar"></p-button>
+    </div>
+    <div class="">
+      <p-button styleClass="border-round-sm" (onClick)="sairModal()" label="Cancelar"></p-button>
+    </div>
+  </div>
+</div>
+<p-toast position="top-right" key="cadastro-cliente" />

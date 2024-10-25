@@ -9,11 +9,18 @@ export class DefautService {
 
   rootUrl: string = 'http://localhost:3000/';
 
+  optionsToken: any = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+    withCredentials: true,
+  };
+
   options: any = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     }),
-    // withCredentials: true,
+    // credentials: 'include',
   };
 
   constructor(private http: HttpClient) { }
@@ -32,5 +39,9 @@ export class DefautService {
 
   public defaultPost(url: string, body: any): Observable<any> {
     return this.http.post<any>(this.rootUrl + url, body, this.options);
+  }
+
+  public postToken(url: string, body: any): Observable<any> {
+    return this.http.post<any>(this.rootUrl + url, body, this.optionsToken);
   }
 }

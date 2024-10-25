@@ -7,6 +7,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { DefautService } from '../../services/defaut-services/defaut.service';
 import { InputTextModule } from 'primeng/inputtext';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registre',
@@ -42,7 +43,7 @@ export class RegistreComponent implements OnInit {
   isSenhaEmpty: boolean = false;
 
 
-  constructor(private service: DefautService) { }
+  constructor(private service: DefautService, private router: Router, private messageService: MessageService) { }
 
   ngOnInit() {
   }
@@ -61,12 +62,28 @@ export class RegistreComponent implements OnInit {
       username: this.login,
       password: this.senha
     }
+    this.spinnerActive = true;
 
     this.service.defaultPost('user', body).subscribe({
       next: (res) => {
-        
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Usuario criado com sucesso!',
+          key: 'registro',
+          life: 3000,
+        });
+        this.router.navigate(['']);
       },
       error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Erro ao criar o usuario',
+          key: 'registro',
+          life: 3000,
+        });
+        this.spinnerActive = false;
       },
     })
   }

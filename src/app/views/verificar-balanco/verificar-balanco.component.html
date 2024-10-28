@@ -1,11 +1,22 @@
 <app-topo-paginas></app-topo-paginas>
 <p-toast position="top-right" key="verifica-transacao" />
-<div class="grid p-3">
-  <div class="col-6 flex">
-    <p-button [rounded]="true" [text]="true" icon="pi pi-arrow-left" (onClick)="voltarHome()"/>
+<div class="grid p-3 mt-1">
+  <div class="col-6 grid">
+    <div class="col-2">
+      <p-button [rounded]="true" [text]="true" icon="pi pi-arrow-left" (onClick)="voltarHome()"/>
+    </div>
+    <div class="col-10">
+      <p-floatLabel>
+        <input pInputText id="idCustomer" [(ngModel)]="idCustomer" />
+        <label for="idCustomer">Descrição</label>
+      </p-floatLabel>
+      @if(isIdCustomerEmpty){
+        <small style="display:block;color:red">Campo Descrição é obrigatorio</small>
+      }
+    </div>
   </div>
   <div class="col-6 flex justify-content-end">
-    <p-button [rounded]="true" [text]="true" icon="pi pi-plus" (onClick)="cadastraTransacao()"/>
+    <p-button [rounded]="true" [text]="true" icon="pi pi-search" (onClick)="pesquisar()"/>
   </div>
   <div class="col-12 mt-1">
     <p-table responsiveLayout="scroll" [loading]="carregaTabela" dataKey="id" [columns]="colunas" [value]="dadosGrid" styleClass="p-datatable-gridlines">

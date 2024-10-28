@@ -1,3 +1,84 @@
-<p>
-  formulario-transacao works!
-</p>
+<div class="grid mt-4 mb-8">
+  <div class="col-3">
+    <p-floatLabel>
+      <p-inputNumber 
+        [(ngModel)]="customerId" 
+        mode="decimal"  
+        [useGrouping]="false" />
+      <!-- <input pInputText id="cpf" [(ngModel)]="cpf" /> -->
+      <label for="customerId">Id Cliente</label>
+    </p-floatLabel>
+    @if(isIdClienteEmpty){
+      <small style="display:block;color:red">Campo Id Cliente é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3">
+    <p-floatLabel>
+      <p-inputNumber 
+        [(ngModel)]="amount" 
+        mode="decimal"  
+        [useGrouping]="false" />
+      <!-- <input pInputText id="cpf" [(ngModel)]="cpf" /> -->
+      <label for="amount">Quantidade</label>
+    </p-floatLabel>
+    @if(isAumontEmpty){
+      <small style="display:block;color:red">Campo Quantidade é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3">
+    <p-floatLabel>
+      <input pInputText id="description" [(ngModel)]="description" />
+      <label for="description">Descrição</label>
+    </p-floatLabel>
+    @if(isDescriptionEmpty){
+      <small style="display:block;color:red">Campo Descrição é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3">
+    <p-floatLabel>
+      <input pInputText id="cardNumber" [(ngModel)]="cardNumber" />
+      <label for="cardNumber">Número Cartão</label>
+    </p-floatLabel>
+    @if(isCardNumberEmpty){
+      <small style="display:block;color:red">Campo Número Cartão é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3 mt-2">
+    <p-floatLabel>
+      <input pInputText id="cardholderName" [(ngModel)]="cardholderName" />
+      <label for="cardholderName">Nome Cartão</label>
+    </p-floatLabel>
+    @if(isCardHolderNameEmpty){
+      <small style="display:block;color:red">Campo Nome Cartão é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3 mt-2">
+    <p-floatLabel>
+      <input pInputText id="cardExpirationDate" [(ngModel)]="cardExpirationDate" />
+      <label for="cardExpirationDate">Data Expiração</label>
+    </p-floatLabel>
+    @if(isCardExpirationDateEmpty){
+      <small style="display:block;color:red">Campo Data Expiração é obrigatorio</small>
+    }
+  </div>
+  <div class="col-3 mt-2">
+    <p-floatLabel>
+      <input pInputText id="cvv" [(ngModel)]="cvv" />
+      <label for="cvv">CVV</label>
+    </p-floatLabel>
+    @if(isCvvEmpty){
+      <small style="display:block;color:red">Campo CVV é obrigatorio</small>
+    }
+  </div>
+</div>
+<div class="custom-div">
+  <div class="flex align-items-center md:justify-content-end mt-2">
+    <div class="mr-2">
+      <p-button styleClass="border-round-sm" (onClick)="salvarDados()" label="Salvar"></p-button>
+    </div>
+    <div class="">
+      <p-button styleClass="border-round-sm" (onClick)="sairModal()" label="Cancelar"></p-button>
+    </div>
+  </div>
+</div>
+<p-toast position="top-right" key="cadastro-cliente" />

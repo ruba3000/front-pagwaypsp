@@ -56,6 +56,11 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  public enviarBalanco(): void {
+    this.router.navigate(['/verifica-balanco']);
+    
+  }
   
 
 }

@@ -23,10 +23,21 @@ export class DefautService {
     // credentials: 'include',
   };
 
+  optionsBalanco: any = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+    credentials: 'include',
+  };
+
   constructor(private http: HttpClient) { }
 
   public defaultGet(url: string): Observable<any> {
     return this.http.get<any>(this.rootUrl + url, this.options);
+  }
+
+  public getBalanco(url: string): Observable<any> {
+    return this.http.get<any>(this.rootUrl + url, this.optionsBalanco);
   }
 
   public defaultDelete(url: string): Observable<any> {

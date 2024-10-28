@@ -4,6 +4,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegistreComponent } from './views/registre/registre.component';
 import { VerificaTransacaoComponent } from './views/verifica-transacao/verifica-transacao.component';
 import { FormularioClienteComponent } from './views/formulario-cliente/formulario-cliente.component';
+import { VerificarBalancoComponent } from './views/verificar-balanco/verificar-balanco.component';
 
 export const routes: Routes = [
     {
@@ -17,5 +18,8 @@ export const routes: Routes = [
     },
     {
         path: 'registre', component: RegistreComponent
+    },
+    {
+        path: 'verifica-balanco', component: VerificarBalancoComponent
     }
 ];
